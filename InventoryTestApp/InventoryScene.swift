@@ -66,22 +66,22 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
     func updateEquippedSlots() {
         
         print("updateEquippedSlots")
-        var inventoryItemsArray = [InventoryItem]()
-        
-        for item in GameState.sharedInstance.equippedItems {
-            inventoryItemsArray.append(item.1)
-        }
-
-        var i = 0
-        for invItemNode in self.children as! [InventoryItemNode] {
-            if inventoryItemsArray.count > i {
-                invItemNode.removeAllChildren()
-                invItemNode.updateWithItem(inventoryItemsArray[i])
-            } else {
-                invItemNode.removeAllChildren()
-                invItemNode.updateWithItem(nil)
-            }
-            i++
-        }
+//        var inventoryItemsArray = [InventoryItem]()
+//        
+//        for item in GameState.sharedInstance.equippedItems {
+//            inventoryItemsArray.append(item.1)
+//        }
+//
+//        var i = 0
+//        for invItemNode in self.children as! [InventoryItemNode] {
+//            if inventoryItemsArray.count > i {
+//                invItemNode.removeAllChildren()
+//                invItemNode.updateWithItem(inventoryItemsArray[i])
+//            } else {
+//                invItemNode.removeAllChildren()
+//                invItemNode.updateWithItem(nil)
+//            }
+//            i++
+//        }
     }
 }

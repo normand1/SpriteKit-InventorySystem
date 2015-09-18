@@ -20,8 +20,8 @@ extension Dictionary {
 class GameState {
     
     static let sharedInstance = GameState()
-    var inventoryStorage = [String : InventoryItem]()
-    var equippedItems = [String : InventoryItem]()
+    var inventoryStorage = [InventoryItem]()
+    var equippedItems = [InventoryItem]()
     var gameTimer : NSTimer?
     var inventoryStorageTempClone = [InventoryItemName : InventoryItem]()
     var equippedItemsTempClone = [InventoryItemName : InventoryItem]()
@@ -31,36 +31,36 @@ class GameState {
     
     
     
-    class func findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName)->InventoryItem? {
-      
-        if GameState.sharedInstance.inventoryStorage[inventoryItemName.rawValue] != nil {
-            return GameState.sharedInstance.inventoryStorage[inventoryItemName.rawValue]
-        } else {
-        if GameState.sharedInstance.equippedItems[inventoryItemName.rawValue] != nil {
-                return GameState.sharedInstance.equippedItems[inventoryItemName.rawValue]
-            }
-        }
-        
-        return nil
-    }
+//    class func findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName)->InventoryItem? {
+//      
+//        if GameState.sharedInstance.inventoryStorage[inventoryItemName.rawValue] != nil {
+//            return GameState.sharedInstance.inventoryStorage[inventoryItemName.rawValue]
+//        } else {
+//        if GameState.sharedInstance.equippedItems[inventoryItemName.rawValue] != nil {
+//                return GameState.sharedInstance.equippedItems[inventoryItemName.rawValue]
+//            }
+//        }
+//        
+//        return nil
+//    }
+//    
+//    class func findInventoryItemInEitherTemporaryCloneStorage(inventoryItemName:InventoryItemName)->InventoryItem? {
+//        
+//        if GameState.sharedInstance.inventoryStorageTempClone[inventoryItemName] != nil {
+//            return GameState.sharedInstance.inventoryStorageTempClone[inventoryItemName]
+//        } else {
+//            if GameState.sharedInstance.equippedItemsTempClone[inventoryItemName] != nil {
+//                return GameState.sharedInstance.equippedItemsTempClone[inventoryItemName]
+//            }
+//        }
+//        
+//        return nil
+//    }
     
-    class func findInventoryItemInEitherTemporaryCloneStorage(inventoryItemName:InventoryItemName)->InventoryItem? {
-        
-        if GameState.sharedInstance.inventoryStorageTempClone[inventoryItemName] != nil {
-            return GameState.sharedInstance.inventoryStorageTempClone[inventoryItemName]
-        } else {
-            if GameState.sharedInstance.equippedItemsTempClone[inventoryItemName] != nil {
-                return GameState.sharedInstance.equippedItemsTempClone[inventoryItemName]
-            }
-        }
-        
-        return nil
-    }
-    
-    class func itemFromInventoryStorageWithName(name:String)->InventoryItem? {
-        
-        return GameState.sharedInstance.inventoryStorage[name]
-        
-    }
+//    class func itemFromInventoryStorageWithName(name:String)->InventoryItem? {
+//        
+////        return GameState.sharedInstance.inventoryStorage[name]
+//        
+//    }
     
 }

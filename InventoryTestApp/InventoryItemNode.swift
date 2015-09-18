@@ -23,6 +23,8 @@ class InventoryItemNode: SKShapeNode {
     var selected = false
     var imageNode : SKSpriteNode?
     var backgroundImage: SKSpriteNode?
+    var number = 0
+    var item : InventoryItem?
     
     override init() {
         super.init()
@@ -32,6 +34,7 @@ class InventoryItemNode: SKShapeNode {
     func updateWithItem(item: InventoryItem?) {
         self.removeAllChildren()
         if let realItem = item {
+            self.item = item
             self.itemName = InventoryItemName(rawValue: realItem.imageName!)
             imageNode = SKSpriteNode(imageNamed: realItem.imageName!)
             imageNode?.size = CGSizeMake(35, 35)
@@ -91,5 +94,18 @@ class InventoryItemNode: SKShapeNode {
         self.fillColor = INV_COLOR_DESELECTED
         self.selected = false
     }
+    
+    override func copyWithZone(zone: NSZone) -> AnyObject {
+        let invItemNodeCopy = InventoryItemNode()
+        invItemNodeCopy.delegate = delegate
+        invItemNodeCopy.itemName = itemName
+        invItemNodeCopy.selected = selected
+        invItemNodeCopy.imageNode = imageNode
+        invItemNodeCopy.backgroundImage = backgroundImage
+        invItemNodeCopy.number = number
+        invItemNodeCopy.item = item
+        return invItemNodeCopy
+    }
+
     
 }

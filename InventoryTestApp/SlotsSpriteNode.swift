@@ -27,31 +27,39 @@ class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol
     
     func showInventory() {
         
-        let squareWidth = CGFloat(50) //parent!.frame.size.width / CGFloat(columns)
-        let rows = 3 //Int(parent!.frame.size.height / squareWidth)
-
+        let columns = 3
+        let squareWidth = CGFloat(50)
+        let rows = 3
+        
         self.size = CGSizeMake(squareWidth, CGFloat(rows) * squareWidth)
         self.anchorPoint = CGPointMake(0.0,0.5)
-        self.position = CGPointMake(self.parent!.frame.width / 2 - squareWidth, 0)
+        self.position = CGPointMake(self.parent!.frame.width / 2 - (squareWidth * 3), 0)
         self.color = UIColor.yellowColor()
+        var overallCount = 0
         
-        for var i = 0; i < rows; i++ {
+        for var i = 0; i < columns; i++ {
+            for var j = 0; j < rows; j++ {
                 
                 let inventoryItem = InventoryItemNode(rectOfSize: CGSize(width: squareWidth, height: squareWidth))
                 inventoryItem.delegate = self
-                let updatedX = CGFloat(squareWidth / 2)
-                let updatedY = CGFloat(self.frame.size.height - (CGFloat(inventoryItem.frame.size.height))) / CGFloat(2) - (squareWidth * CGFloat(i))
+                let updatedX = CGFloat(squareWidth / 2) + CGFloat(i * 50) - CGFloat(1)
+                let updatedY = CGFloat(self.frame.size.height - (CGFloat(inventoryItem.frame.size.height))) / CGFloat(2) - (squareWidth * CGFloat(j))
                 
                 inventoryItem.position = CGPoint(x:updatedX, y:updatedY )
                 inventoryItem.fillColor = UIColor.blackColor()
                 inventoryItem.strokeColor = UIColor.whiteColor()
                 inventoryItem.lineWidth = 2.0
-            if i == 0 {
-                inventoryItem.selectItem()
-            }
+                inventoryItem.number = overallCount
+                overallCount++
+                if i == 0 && j == 0 {
+                    inventoryItem.selectItem()
+                }
                 self.addChild(inventoryItem)
+                
+            }
         }
-        
+
+
         updateSlotsWithEquippedItems()
     }
     
@@ -80,18 +88,19 @@ class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol
         }
     }
     
-    func updateSlot(item: InventoryItem?)->InventoryItem? {
-        return nil
+    func updateSlot(item: InventoryItem?, childIndex:Int){
+        (self.children[childIndex] as! InventoryItemNode).updateWithItem(item)
+        GameState.sharedInstance.equippedItems[childIndex] = item!
     }
     
-    class func addNewItemNamed(name: InventoryItemName) {
-        if GameState.sharedInstance.equippedItems[name.rawValue] != nil {
-            GameState.sharedInstance.equippedItems[name.rawValue]?.numberInStack++
-        } else {
-            GameState.sharedInstance.equippedItems[name.rawValue] = InventoryItem(name: name)
-            GameState.sharedInstance.equippedItems[name.rawValue]?.numberInStack = 1
-        }
-    }
+//    class func addNewItemNamed(name: InventoryItemName) {
+//        if GameState.sharedInstance.equippedItems[name.rawValue] != nil {
+//            GameState.sharedInstance.equippedItems[name.rawValue]?.numberInStack++
+//        } else {
+//            GameState.sharedInstance.equippedItems[name.rawValue] = InventoryItem(name: name)
+//            GameState.sharedInstance.equippedItems[name.rawValue]?.numberInStack = 1
+//        }
+//    }
     
     func listItemsInSlots()->[InventoryItemNode] {
         return self.children as! [InventoryItemNode]
@@ -99,10 +108,8 @@ class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol
     
     func updateSlotsWithEquippedItems() {
         var i = 0
-        for (key, _) in GameState.sharedInstance.equippedItems {
-            if let equippedItem = GameState.sharedInstance.equippedItems[key] {
-                (self.children[i] as! InventoryItemNode).updateWithItem(equippedItem)
-            }
+        for key in GameState.sharedInstance.equippedItems {
+                (self.children[i] as! InventoryItemNode).updateWithItem(key)
             i++
         }
         
