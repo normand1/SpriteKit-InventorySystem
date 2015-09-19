@@ -68,3 +68,5 @@ Planned Features
 Thanks to the 'Asset Jesus' Kenney for his awesome item images available for free here:
 http://www.kenney.nl/assets/voxel-pack
 
+### License
+The MIT License (MIT)
