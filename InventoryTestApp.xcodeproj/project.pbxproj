@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A434F681BAE14EB00D76D76 /* inventoryExample2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A434F661BAE14EB00D76D76 /* inventoryExample2.gif */; settings = {ASSET_TAGS = (); }; };
+		4A434F691BAE14EB00D76D76 /* inventoryExample1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A434F671BAE14EB00D76D76 /* inventoryExample1.gif */; settings = {ASSET_TAGS = (); }; };
 		4AE823F31BAB1BE700814041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE823F21BAB1BE700814041 /* AppDelegate.swift */; };
 		4AE823F51BAB1BE700814041 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE823F41BAB1BE700814041 /* GameViewController.swift */; };
 		4AE823F81BAB1BE700814041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE823F61BAB1BE700814041 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A434F661BAE14EB00D76D76 /* inventoryExample2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = inventoryExample2.gif; sourceTree = "<group>"; };
+		4A434F671BAE14EB00D76D76 /* inventoryExample1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = inventoryExample1.gif; sourceTree = "<group>"; };
 		4AE823EF1BAB1BE700814041 /* InventoryTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE823F21BAB1BE700814041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AE823F41BAB1BE700814041 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,15 @@
 			name = "Game Models";
 			sourceTree = "<group>";
 		};
+		4A434F651BAE14CE00D76D76 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				4A434F661BAE14EB00D76D76 /* inventoryExample2.gif */,
+				4A434F671BAE14EB00D76D76 /* inventoryExample1.gif */,
+			);
+			name = Gifs;
+			sourceTree = "<group>";
+		};
 		4AE823E61BAB1BE700814041 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +179,7 @@
 				4A434F611BAE02A600D76D76 /* InventoryScenes */,
 				4A434F631BAE0F0300D76D76 /* Inventory Nodes */,
 				4A434F621BAE0E2700D76D76 /* Misc Custom Controls */,
+				4A434F651BAE14CE00D76D76 /* Gifs */,
 				4AE823F61BAB1BE700814041 /* Main.storyboard */,
 				4AE823F91BAB1BE700814041 /* Assets.xcassets */,
 				4AE823FB1BAB1BE700814041 /* LaunchScreen.storyboard */,
@@ -296,8 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE823FD1BAB1BE700814041 /* LaunchScreen.storyboard in Resources */,
+				4A434F681BAE14EB00D76D76 /* inventoryExample2.gif in Resources */,
 				4AE823FA1BAB1BE700814041 /* Assets.xcassets in Resources */,
 				4AE823F81BAB1BE700814041 /* Main.storyboard in Resources */,
+				4A434F691BAE14EB00D76D76 /* inventoryExample1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
