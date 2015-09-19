@@ -25,6 +25,31 @@ This example app uses a singleton GameState object to maintain equipped and uneq
 ### Caching
 InventoryItem conforms to NSCoding. Cache it any way you'd like and initialize the inventoryStorage or equippeditems arrays prior to showing the inventory.
 
+### Easy Customization
+Adjust the number of rows or columns in either the inventory or the Equipment Slots easily by adjusting these static vars
+
+```
+class InventoryConfig {
+   static let numberOfRows = 5
+   static let numberOfColumns = 8
+    static var totalInventoryNodes : Int {
+        get {
+        return numberOfColumns * numberOfRows
+        }
+    }
+}
+
+class EquippedSlotsConfig {
+    static let numberOfRows = 3
+    static let numberOfColumns = 1
+    static var totalInventoryNodes : Int {
+        get {
+            return numberOfColumns * numberOfRows
+        }
+    }
+}
+```
+
 ### Setup
 
 1. Make sure to call this somewhere during the app's initialization (unless using your own GameState solution):
@@ -33,6 +58,11 @@ InventoryItem conforms to NSCoding. Cache it any way you'd like and initialize t
 ```
 2. Present the InventoryScene wherever you want the player to have access to their equipped items (usually somewhere on the main game play scene)
 3. Present SecondaryInventoryViewController whenever you want the player to move items back and forth between their inventory and equipped item slots
+
+###
+Planned Features
+* Drag and drop
+* 
 
 ### Credit
 Thanks to the 'Asset Jesus' Kenney for his awesome item images available for free here:
