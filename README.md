@@ -34,5 +34,7 @@ InventoryItem conforms to NSCoding. Cache it any way you'd like and initialize t
 2. Present the InventoryScene wherever you want the player to have access to their equipped items (usually somewhere on the main game play scene)
 3. Present SecondaryInventoryViewController whenever you want the player to move items back and forth between their inventory and equipped item slots
 
-
+### Credit
+Thanks to the 'Asset Jesus' Kenney for his awesome item images available for free here:
+http://www.kenney.nl/assets/voxel-pack
 
