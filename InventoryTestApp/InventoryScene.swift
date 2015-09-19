@@ -25,8 +25,8 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateEquippedSlots", name: "com.davidwnorman.updateEquippedSlots", object: nil)
         
         let squareWidth = CGFloat(50)
-        let rows = 3
-        let columns = 1
+        let rows = EquippedSlotsConfig.numberOfRows
+        let columns = EquippedSlotsConfig.numberOfColumns
 
         self.anchorPoint = CGPointMake(0.0,0.3)
         var overallCount = 0

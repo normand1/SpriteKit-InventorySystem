@@ -18,6 +18,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Configure the game state for this demo!
+        GameState.inititialSetup()
 
         //setup view
         self.view.backgroundColor = UIColor.blackColor()
@@ -29,9 +32,6 @@ class GameViewController: UIViewController {
         inventoryMenuView.ignoresSiblingOrder = true
         self.scene!.scaleMode = .ResizeFill
         inventoryMenuView.presentScene(scene)
-        
-        //Configure the game state for this demo!
-        GameState.inititialSetup()
         
     }
 

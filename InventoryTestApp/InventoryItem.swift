@@ -50,7 +50,6 @@ class InventoryItem: NSObject, NSCopying, NSCoding {
         self.numberInStack = numberInStack
     }
     
-    
     func copyWithZone(zone: NSZone) -> AnyObject {
         return InventoryItem(name: self.name!, numberInStack:self.numberInStack)
     }
