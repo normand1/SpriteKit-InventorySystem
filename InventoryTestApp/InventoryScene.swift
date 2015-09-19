@@ -13,7 +13,7 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
     
    
     required init?(coder aDecoder: NSCoder) {
-        fatalError("NSCoding not supported")
+        super.init(coder: aDecoder)
     }
     
     override init(size: CGSize) {
@@ -24,24 +24,33 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateEquippedSlots", name: "com.davidwnorman.updateEquippedSlots", object: nil)
         
-        
-        let squareWidth = 50//view.bounds.size.width
+        let squareWidth = CGFloat(50)
         let rows = 3
+        let columns = 1
+
+        self.anchorPoint = CGPointMake(0.0,0.3)
+        var overallCount = 0
         
-        self.anchorPoint = CGPointMake(0.3
-            ,0.85)
-        
-        for var i = 0; i < rows; i++ {
-            let inventoryItem = InventoryItemNode(rectOfSize: CGSize(width: squareWidth, height: 50))
-            inventoryItem.delegate = self
-            let updatedX = CGFloat(squareWidth / 2)
-            let updatedY = CGFloat(0 - (50 * CGFloat(i)))
-            
-            inventoryItem.position = CGPoint(x:updatedX, y:updatedY)
-            inventoryItem.fillColor = UIColor.blackColor()
-            inventoryItem.strokeColor = UIColor.whiteColor()
-            inventoryItem.lineWidth = 2.0
-            self.addChild(inventoryItem)
+        for var i = 0; i < columns; i++ {
+            for var j = 0; j < rows; j++ {
+                
+                let inventoryItem = InventoryItemNode(rectOfSize: CGSize(width: squareWidth, height: squareWidth))
+                inventoryItem.delegate = self
+                let updatedX = CGFloat(squareWidth / 2) + CGFloat(i * 50) + CGFloat(1)
+                let updatedY = CGFloat(self.frame.size.height - (CGFloat(inventoryItem.frame.size.height))) / CGFloat(2) - (squareWidth * CGFloat(j))
+                
+                inventoryItem.position = CGPoint(x:updatedX, y:updatedY )
+                inventoryItem.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+                inventoryItem.strokeColor = UIColor.whiteColor()
+                inventoryItem.lineWidth = 2.0
+                inventoryItem.number = overallCount
+                overallCount++
+                if i == 0 && j == 0 {
+                    inventoryItem.selectItem()
+                }
+                self.addChild(inventoryItem)
+
+            }
         }
         
         self.updateEquippedSlots()
@@ -57,31 +66,23 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
         }
     }
     
-    func InventoryNodeTouched(itemName: String?) {
-        if itemName != nil  {
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "com.davidwnorman.setSelectedItem", object: nil, userInfo: ["itemName":itemName!]))
-        }
+    func InventoryNodeTouched(item: InventoryItem?) {
+            //Notify anything in your game what the selected weapon is
     }
     
     func updateEquippedSlots() {
-        
-        print("updateEquippedSlots")
-//        var inventoryItemsArray = [InventoryItem]()
-//        
-//        for item in GameState.sharedInstance.equippedItems {
-//            inventoryItemsArray.append(item.1)
-//        }
-//
-//        var i = 0
-//        for invItemNode in self.children as! [InventoryItemNode] {
-//            if inventoryItemsArray.count > i {
-//                invItemNode.removeAllChildren()
-//                invItemNode.updateWithItem(inventoryItemsArray[i])
-//            } else {
-//                invItemNode.removeAllChildren()
-//                invItemNode.updateWithItem(nil)
-//            }
-//            i++
-//        }
+        var inventoryItemsArray = [InventoryItem]()
+        for item in GameState.sharedInstance.equippedItems {
+            inventoryItemsArray.append(item)
+        }
+
+        var i = 0
+        for invItemNode in self.children as! [InventoryItemNode] {
+            if inventoryItemsArray.count > i {
+                invItemNode.removeAllChildren()
+                invItemNode.updateWithItem(inventoryItemsArray[i])
+            } 
+            i++
+        }
     }
 }

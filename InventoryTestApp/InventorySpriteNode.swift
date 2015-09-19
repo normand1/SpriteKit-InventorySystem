@@ -28,9 +28,19 @@
         
         var delegate: InventoryProtocol?
         
+        
+        //MARK: - Lifecycle 
+        
         init(size: CGSize) {
             super.init(texture:nil, color: UIColor.clearColor(), size: size)
         }
+        
+        
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+        }
+        
+        
         
         func showInventory() {
             var tempInvArray = [InventoryItem]()
@@ -39,10 +49,9 @@
                 tempInvArray.append(key)
             }
             
-            let columns = 8 //change number of columns (rows are auto-calced based on size of view)
-            
+            let columns = InventoryConfig.numberOfColumns
+            let rows = InventoryConfig.numberOfRows
             let squareWidth = CGFloat(50)
-            let rows = 5
             self.size = CGSizeMake(parent!.frame.size.width, CGFloat(rows) * squareWidth)
             self.anchorPoint = CGPointMake(0.5,0.5)
             self.position = CGPointMake(0, 0)
@@ -75,30 +84,18 @@
             }
         }
         
-        class func addNewItemNamed(name: InventoryItemName) {
-//            if GameState.sharedInstance.inventoryStorage[name.rawValue] != nil {
-//                GameState.sharedInstance.inventoryStorage[name.rawValue]?.numberInStack++
-//            }
-//            else {
-//                GameState.sharedInstance.inventoryStorage[name.rawValue] = InventoryItem(name: name)
-//                GameState.sharedInstance.inventoryStorage[name.rawValue]?.numberInStack = 1
-//            }
-        }
-        
-        func InventoryNodeTouched(itemName: String?) {
+        func InventoryNodeTouched(item: InventoryItem?) {
             for node in self.children as! [InventoryItemNode] {
                 //slot and inv node selected
                 if node.selected && self.delegate?.selectedNode() != nil {
                     self.swapInvAndSlot(node)
                 }
             }
-        
             NSNotificationCenter.defaultCenter().postNotification(NSNotification(name:"com.davidwnorman.updateEquippedSlots", object: nil))
-            
         }
         
         func swapInvAndSlot(selectedInvNode: InventoryItemNode) {
-        let slot = self.delegate?.selectedNode()
+            let slot = self.delegate?.selectedNode()
             let tempSlotNode = slot!.copy() as! InventoryItemNode
             let tempInvNode = selectedInvNode.copy() as! InventoryItemNode
             self.updateInvetoryNode(tempSlotNode.item, childIndex: tempInvNode.number)
@@ -118,11 +115,5 @@
                 }
             }
         }
-        
-        
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
+    
     }

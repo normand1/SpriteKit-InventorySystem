@@ -9,7 +9,7 @@
 import SpriteKit
 
 protocol InventoryItemNodeProtocol {
-    func InventoryNodeTouched(itemName:String?)
+    func InventoryNodeTouched(item:InventoryItem?)
     func resetAllNodesToDefault()
 }
 
@@ -40,7 +40,7 @@ class InventoryItemNode: SKShapeNode {
             imageNode?.size = CGSizeMake(35, 35)
             self.addChild(imageNode!)
             
-            let countLabel = SKLabelNode(text: String(realItem.numberInStack))
+            let countLabel = SKLabelNode(text: realItem.numberInStack == 0 ? "" : String(realItem.numberInStack))
             countLabel.fontSize = 20
             countLabel.position = CGPointMake(-15, 5)
             countLabel.fontColor = UIColor.whiteColor()
@@ -49,7 +49,6 @@ class InventoryItemNode: SKShapeNode {
             self.addChild(countLabel)
             updateWithBackgroundImageNode()
         } else {
-            self.itemName = nil
             self.imageNode = SKSpriteNode(imageNamed: "")
             updateWithBackgroundImageNode()
         }
@@ -72,13 +71,13 @@ class InventoryItemNode: SKShapeNode {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         delegate?.resetAllNodesToDefault()
         self.selectItem()
-        delegate?.InventoryNodeTouched(self.itemName?.rawValue)
+        delegate?.InventoryNodeTouched(self.item)
 
     }
     
@@ -88,7 +87,6 @@ class InventoryItemNode: SKShapeNode {
         print("selected: \(self.itemName)")
 
     }
-    
     
     func deselect() {
         self.fillColor = INV_COLOR_DESELECTED

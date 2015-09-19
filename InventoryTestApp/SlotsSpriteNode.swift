@@ -1,5 +1,5 @@
 //
-//  SlotsSpriteNode.swift
+//  EquippedSlotsSpriteNode.swift
 //  Inventory
 //
 //  Created by David Norman on 8/16/15.
@@ -11,7 +11,7 @@ import Foundation
 
 
 
-class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol {
+class EquippedSlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol {
     
     var slotSelected: Bool
     
@@ -20,21 +20,19 @@ class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol
         super.init(texture:nil, color: UIColor.clearColor(), size: size)
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func showInventory() {
         
-        let columns = 3
+        let columns = EquippedSlotsConfig.numberOfColumns
+        let rows = EquippedSlotsConfig.numberOfRows
         let squareWidth = CGFloat(50)
-        let rows = 3
         
         self.size = CGSizeMake(squareWidth, CGFloat(rows) * squareWidth)
         self.anchorPoint = CGPointMake(0.0,0.5)
         self.position = CGPointMake(self.parent!.frame.width / 2 - (squareWidth * 3), 0)
-        self.color = UIColor.yellowColor()
         var overallCount = 0
         
         for var i = 0; i < columns; i++ {
@@ -77,7 +75,7 @@ class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol
         return nil
     }
     
-    func InventoryNodeTouched(itemName: String?) {
+    func InventoryNodeTouched(item: InventoryItem?) {
     }
     
     func resetAllNodesToDefault() {
@@ -92,15 +90,6 @@ class SlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, InventoryProtocol
         (self.children[childIndex] as! InventoryItemNode).updateWithItem(item)
         GameState.sharedInstance.equippedItems[childIndex] = item!
     }
-    
-//    class func addNewItemNamed(name: InventoryItemName) {
-//        if GameState.sharedInstance.equippedItems[name.rawValue] != nil {
-//            GameState.sharedInstance.equippedItems[name.rawValue]?.numberInStack++
-//        } else {
-//            GameState.sharedInstance.equippedItems[name.rawValue] = InventoryItem(name: name)
-//            GameState.sharedInstance.equippedItems[name.rawValue]?.numberInStack = 1
-//        }
-//    }
     
     func listItemsInSlots()->[InventoryItemNode] {
         return self.children as! [InventoryItemNode]

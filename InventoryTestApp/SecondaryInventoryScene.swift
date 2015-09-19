@@ -11,8 +11,9 @@ import SpriteKit
 class SecondaryInventoryScene: SKScene, MenuButtonDelegate {
     
     var inventorySpriteNode: InventorySpriteNode?
-    var slotsSpriteNode: SlotsSpriteNode?
+    var equippedSlotsSpriteNode: EquippedSlotsSpriteNode?
     
+    //MARK: - Lifecycle 
     override func didMoveToView(view: SKView) {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -21,11 +22,11 @@ class SecondaryInventoryScene: SKScene, MenuButtonDelegate {
         self.addChild(inventorySpriteNode!)
         inventorySpriteNode!.showInventory()
         
-        slotsSpriteNode = SlotsSpriteNode(size: CGSizeMake(0, 0))
-        self.addChild(slotsSpriteNode!)
-        slotsSpriteNode!.showInventory()
+        equippedSlotsSpriteNode = EquippedSlotsSpriteNode(size: CGSizeMake(0, 0))
+        self.addChild(equippedSlotsSpriteNode!)
+        equippedSlotsSpriteNode!.showInventory()
         
-        inventorySpriteNode!.delegate = slotsSpriteNode
+        inventorySpriteNode!.delegate = equippedSlotsSpriteNode
         
         let updateButton = MenuButton(color: UIColor.blackColor(), size: CGSizeMake(25, 25))
         updateButton.name = "updateSlotsButton"
@@ -35,7 +36,7 @@ class SecondaryInventoryScene: SKScene, MenuButtonDelegate {
         updateButton.delegate = self
         updateButton.userInteractionEnabled = true
         self.addChild(updateButton)
-        print("\(self.slotsSpriteNode?.listItemsInSlots())")
+        print("\(self.equippedSlotsSpriteNode?.listItemsInSlots())")
     }
     
     func menuButtonTouched() {

@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4AE823F31BAB1BE700814041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE823F21BAB1BE700814041 /* AppDelegate.swift */; };
-		4AE823F51BAB1BE700814041 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE823F41BAB1BE700814041 /* ViewController.swift */; };
+		4AE823F51BAB1BE700814041 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE823F41BAB1BE700814041 /* GameViewController.swift */; };
 		4AE823F81BAB1BE700814041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE823F61BAB1BE700814041 /* Main.storyboard */; };
 		4AE823FA1BAB1BE700814041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE823F91BAB1BE700814041 /* Assets.xcassets */; };
 		4AE823FD1BAB1BE700814041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE823FB1BAB1BE700814041 /* LaunchScreen.storyboard */; };
 		4AE824081BAB1BE700814041 /* InventoryTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824071BAB1BE700814041 /* InventoryTestAppTests.swift */; };
 		4AE824131BAB1BE700814041 /* InventoryTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824121BAB1BE700814041 /* InventoryTestAppUITests.swift */; };
-		4AE824211BAB1D1E00814041 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824201BAB1D1E00814041 /* InventoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4AE824211BAB1D1E00814041 /* SecondaryInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824201BAB1D1E00814041 /* SecondaryInventoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4AE824281BAB1D4100814041 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824221BAB1D4100814041 /* InventoryItem.swift */; settings = {ASSET_TAGS = (); }; };
 		4AE824291BAB1D4100814041 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824231BAB1D4100814041 /* MenuButton.swift */; settings = {ASSET_TAGS = (); }; };
 		4AE8242A1BAB1D4100814041 /* InventorySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE824241BAB1D4100814041 /* InventorySpriteNode.swift */; settings = {ASSET_TAGS = (); }; };
@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		4AE823EF1BAB1BE700814041 /* InventoryTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE823F21BAB1BE700814041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AE823F41BAB1BE700814041 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AE823F41BAB1BE700814041 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4AE823F71BAB1BE700814041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AE823F91BAB1BE700814041 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE823FC1BAB1BE700814041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		4AE8240E1BAB1BE700814041 /* InventoryTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventoryTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE824121BAB1BE700814041 /* InventoryTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTestAppUITests.swift; sourceTree = "<group>"; };
 		4AE824141BAB1BE700814041 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AE824201BAB1D1E00814041 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		4AE824201BAB1D1E00814041 /* SecondaryInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryViewController.swift; sourceTree = "<group>"; };
 		4AE824221BAB1D4100814041 /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		4AE824231BAB1D4100814041 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		4AE824241BAB1D4100814041 /* InventorySpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventorySpriteNode.swift; sourceTree = "<group>"; };
@@ -92,6 +92,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A434F601BAE028F00D76D76 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4AE823F41BAB1BE700814041 /* GameViewController.swift */,
+				4AE824201BAB1D1E00814041 /* SecondaryInventoryViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4A434F611BAE02A600D76D76 /* InventoryScenes */ = {
+			isa = PBXGroup;
+			children = (
+				4AE8242E1BAB1D5F00814041 /* SecondaryInventoryScene.swift */,
+				4AE824271BAB1D4100814041 /* InventoryScene.swift */,
+			);
+			name = InventoryScenes;
+			sourceTree = "<group>";
+		};
+		4A434F621BAE0E2700D76D76 /* Misc Custom Controls */ = {
+			isa = PBXGroup;
+			children = (
+				4AE824231BAB1D4100814041 /* MenuButton.swift */,
+			);
+			name = "Misc Custom Controls";
+			sourceTree = "<group>";
+		};
+		4A434F631BAE0F0300D76D76 /* Inventory Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				4AE824241BAB1D4100814041 /* InventorySpriteNode.swift */,
+				4AE824251BAB1D4100814041 /* SlotsSpriteNode.swift */,
+				4AE824261BAB1D4100814041 /* InventoryItemNode.swift */,
+			);
+			name = "Inventory Nodes";
+			sourceTree = "<group>";
+		};
+		4A434F641BAE0F5400D76D76 /* Game Models */ = {
+			isa = PBXGroup;
+			children = (
+				4AE824301BAB1E6500814041 /* GameState.swift */,
+				4AE824221BAB1D4100814041 /* InventoryItem.swift */,
+			);
+			name = "Game Models";
+			sourceTree = "<group>";
+		};
 		4AE823E61BAB1BE700814041 = {
 			isa = PBXGroup;
 			children = (
@@ -116,16 +161,11 @@
 			isa = PBXGroup;
 			children = (
 				4AE823F21BAB1BE700814041 /* AppDelegate.swift */,
-				4AE824301BAB1E6500814041 /* GameState.swift */,
-				4AE823F41BAB1BE700814041 /* ViewController.swift */,
-				4AE824201BAB1D1E00814041 /* InventoryViewController.swift */,
-				4AE8242E1BAB1D5F00814041 /* SecondaryInventoryScene.swift */,
-				4AE824221BAB1D4100814041 /* InventoryItem.swift */,
-				4AE824231BAB1D4100814041 /* MenuButton.swift */,
-				4AE824241BAB1D4100814041 /* InventorySpriteNode.swift */,
-				4AE824251BAB1D4100814041 /* SlotsSpriteNode.swift */,
-				4AE824261BAB1D4100814041 /* InventoryItemNode.swift */,
-				4AE824271BAB1D4100814041 /* InventoryScene.swift */,
+				4A434F641BAE0F5400D76D76 /* Game Models */,
+				4A434F601BAE028F00D76D76 /* ViewControllers */,
+				4A434F611BAE02A600D76D76 /* InventoryScenes */,
+				4A434F631BAE0F0300D76D76 /* Inventory Nodes */,
+				4A434F621BAE0E2700D76D76 /* Misc Custom Controls */,
 				4AE823F61BAB1BE700814041 /* Main.storyboard */,
 				4AE823F91BAB1BE700814041 /* Assets.xcassets */,
 				4AE823FB1BAB1BE700814041 /* LaunchScreen.storyboard */,
@@ -283,10 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE8242B1BAB1D4100814041 /* SlotsSpriteNode.swift in Sources */,
-				4AE823F51BAB1BE700814041 /* ViewController.swift in Sources */,
+				4AE823F51BAB1BE700814041 /* GameViewController.swift in Sources */,
 				4AE8242D1BAB1D4100814041 /* InventoryScene.swift in Sources */,
 				4AE8242A1BAB1D4100814041 /* InventorySpriteNode.swift in Sources */,
-				4AE824211BAB1D1E00814041 /* InventoryViewController.swift in Sources */,
+				4AE824211BAB1D1E00814041 /* SecondaryInventoryViewController.swift in Sources */,
 				4AE824291BAB1D4100814041 /* MenuButton.swift in Sources */,
 				4AE8242C1BAB1D4100814041 /* InventoryItemNode.swift in Sources */,
 				4AE823F31BAB1BE700814041 /* AppDelegate.swift in Sources */,
@@ -519,6 +559,7 @@
 				4AE824191BAB1BE700814041 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AE8241A1BAB1BE700814041 /* Build configuration list for PBXNativeTarget "InventoryTestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +568,7 @@
 				4AE8241C1BAB1BE700814041 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AE8241D1BAB1BE700814041 /* Build configuration list for PBXNativeTarget "InventoryTestAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +577,7 @@
 				4AE8241F1BAB1BE700814041 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
