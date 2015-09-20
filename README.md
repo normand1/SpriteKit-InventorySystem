@@ -26,7 +26,7 @@ This example app uses a singleton GameState object to maintain equipped and uneq
 InventoryItem conforms to NSCoding. Cache it any way you'd like and initialize the inventoryStorage or equippeditems arrays prior to showing the inventory.
 
 ### Easy Customization
-Adjust the number of rows or columns in either the inventory or the Equipment Slots easily by adjusting these static vars
+Adjust the number of rows or columns in either the inventory or the Equipment Slots easily by adjusting these static constants
 
 ```
 class InventoryConfig {
