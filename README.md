@@ -62,7 +62,7 @@ class EquippedSlotsConfig {
 ###
 Planned Features
 * Drag and drop
-* 
+* Scrolling Inventory
 
 ### Credit
 Thanks to the 'Asset Jesus' Kenney for his awesome item images available for free here:
